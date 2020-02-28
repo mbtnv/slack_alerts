@@ -1,1 +1,1 @@
-slack_alerts
+Alert message in Slack when server or API is down.

@@ -1,0 +1,29 @@
+log: # log config for 'logging' module
+  enable: True
+  level: 20
+  log_file: 'log.log'
+  format: '%(asctime)s %(thread)d %(levelname)s %(message)s'
+  datefmt: '%d.%m.%Y %H:%M:%S'
+  
+slack: # slack config
+  webhook_url: https://hooks.slack.com/services/XXXXXXXXXXXX #slack webhook url
+  channel: '' # slack channel name, e.g. '#alerts'
+  app_name: '' # slack name, e.g. 'Alerts'
+  app_icon: '' # slack icon, e.g. ':rabbit:'
+  users:
+    - '' # slack userid for mention in alert message, e.g. 'U7XXXXXXX'
+  
+targets: # targets for checking; 2 types: api - post request, server - check ip:port for timeout
+  api_1: # unique target id
+    type: 'api' # api type
+    name: '' # any name of checking target
+    url: '' # api url
+    payload: {} # api payload, e.g. {"apikey":"xxxxxxx"}
+    interval_check_sec: 600 # checking interval in seconds
+  server_1: # unique target id
+    type: 'server' # server type
+    name: '' # any name of checking target
+    server: '' # target ip
+    port: 0 # target port, e.g. 3389
+    interval_check_sec: 60 # checking interval in seconds
+    timeout_check_sec: 10 # timeout of cheking target ip:port
